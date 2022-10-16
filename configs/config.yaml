@@ -1,0 +1,30 @@
+float: 1.0
+float2: 1.012
+number: 1323
+booleanTrue: true
+booleanFalse: true
+integration:
+  testAdaptor:
+    name: TestAdaptor
+    baseUrl: https://function-one
+    apis:
+      apiOne:
+        name: ApiOne
+        uri: /path-one-uri
+        method: get
+      apiTwo:
+        name: ApiTwo
+        uri: /path-two-uri
+        method: post
+  testAdaptorTwo:
+    name: TestAdaptorTwo
+    baseUrl: https://function-two
+    apis:
+      apiOne:
+        name: ApiOne
+        uri: /path-one-uri
+        method: get
+      apiTwo:
+        name: ApiTwo
+        uri: /path-two-uri
+        method: post
