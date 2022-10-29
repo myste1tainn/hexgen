@@ -8,15 +8,15 @@ import (
     "github.com/gin-gonic/gin"
 	"{{ .Module }}/internal/core/port"
     "github.com/myste1tainn/msfnd"
-	"github.com/myste1tainn/hexnet"
+	"github.com/myste1tainn/msnet"
 )
 
 type {{ .Name }}Repo struct {
-	client hexnet.Client
-	config *hexnet.Config
+	client msnet.Client
+	config *msnet.Config
 }
 
-func New{{ .Name }}Repo(client hexnet.Client, config *hexnet.Config) port.{{ .Name }}Repo {
+func New{{ .Name }}Repo(client msnet.Client, config *msnet.Config) port.{{ .Name }}Repo {
 	return {{ .Name }}Repo{
 		client: client,
 		config: config,
@@ -29,7 +29,7 @@ func (r {{ $.Name }}Repo) {{ $fn }}(req port.{{ $.Name }}{{ $fn }}Request, ctx g
 
     var configKey = strings.ToLower("{{ $fn }}")
     var result port.{{ $.Name }}{{ $fn }}Response
-	var error hexnet.ErrorResponse
+	var error msnet.ErrorResponse
 	res, err := r.client.
 		WithLogger(l).
 		RequestWithContext(rctx, r.config, configKey).
