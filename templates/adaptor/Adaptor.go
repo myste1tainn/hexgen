@@ -7,7 +7,7 @@ import (
 
     "github.com/gin-gonic/gin"
 	"{{ .Module }}/internal/core/port"
-    "github.com/myste1tainn/hexfnd"
+    "github.com/myste1tainn/msfnd"
 	"github.com/myste1tainn/hexnet"
 )
 
@@ -23,7 +23,7 @@ func New{{ .Name }}Repo(client hexnet.Client, config *hexnet.Config) port.{{ .Na
 	}
 }
 {{ range $fn := .Fns }}
-func (r {{ $.Name }}Repo) {{ $fn }}(req port.{{ $.Name }}{{ $fn }}Request, ctx gin.Context, rctx *hexfnd.RouteContext) (*port.{{ $.Name }}{{ $fn }}Response, error) {
+func (r {{ $.Name }}Repo) {{ $fn }}(req port.{{ $.Name }}{{ $fn }}Request, ctx gin.Context, rctx *msfnd.RouteContext) (*port.{{ $.Name }}{{ $fn }}Response, error) {
     var l = ctx.GetLogger().NewSpanLogger()
 	defer l.Destroy()
 

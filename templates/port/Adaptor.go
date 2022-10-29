@@ -4,12 +4,12 @@ var AdaptorTmpl = `package port
 
 import (
     "github.com/gin-gonic/gin"
-    "github.com/myste1tainn/hexfnd"
+    "github.com/myste1tainn/msfnd"
 )
 
 type {{ .Name }}Repo interface {
 {{- range $fn := .Fns }}
-	{{ $fn }}(request {{ $.Name }}{{ $fn }}Request, ctx gin.Context, rctx *hexfnd.RouteContext) (*{{ $.Name }}{{ $fn }}Response, error)
+	{{ $fn }}(request {{ $.Name }}{{ $fn }}Request, ctx gin.Context, rctx *msfnd.RouteContext) (*{{ $.Name }}{{ $fn }}Response, error)
 {{- end }}
 }
 {{ range $fn := .Fns }}
