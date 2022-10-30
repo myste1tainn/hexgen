@@ -27,7 +27,6 @@ func (r {{ $.Name }}Repo) {{ $fn }}(req port.{{ $.Name }}{{ $fn }}Request, rctx 
     var result port.{{ $.Name }}{{ $fn }}Response
 	var error msnet.ErrorResponse
 	res, err := r.client.
-		WithLogger(l).
 		RequestWithContext(rctx, r.config, configKey).
 		Call(&result, &error)
 	if err != nil {
